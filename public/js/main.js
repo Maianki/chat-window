@@ -20,8 +20,6 @@ socket.on("roomUsers", ({ room, users }) => {
 socket.on("message", (message) => {
   outputMessage(message);
 
-  console.log(message);
-
   // Scroll down
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
@@ -33,8 +31,6 @@ chatForm.addEventListener("submit", (e) => {
   // Get message text
   let msg = e.target.elements.message.value;
   msg = msg.trim();
-
-  console.log(msg);
 
   if (!msg) {
     return false;
