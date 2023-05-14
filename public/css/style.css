@@ -39,6 +39,11 @@ a {
     border-radius: 4px;
 }
 
+.btn-leave{
+    background-color: #df3832;
+    color: #fff;
+}
+
 /* Chat Page */
 
 .chat-container {
