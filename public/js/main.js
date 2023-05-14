@@ -20,6 +20,8 @@ socket.on("roomUsers", ({ room, users }) => {
 socket.on("message", (message) => {
   outputMessage(message);
 
+  console.log(message);
+
   // Scroll down
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
@@ -29,8 +31,10 @@ chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   // Get message text
-  let msg = e.target.elements.msg.value;
+  let msg = e.target.elements.message.value;
   msg = msg.trim();
+
+  console.log(msg);
 
   if (!msg) {
     return false;
@@ -40,8 +44,8 @@ chatForm.addEventListener("submit", (e) => {
   socket.emit("chatMessage", msg);
 
   // Clear input
-  e.target.elements.msg.value = "";
-  e.target.elements.msg.focus();
+  e.target.elements.message.value = "";
+  e.target.elements.message.focus();
 });
 
 function outputMessage(message) {
@@ -56,7 +60,7 @@ function outputMessage(message) {
 
   const para = document.createElement("p");
   para.classList.add("text");
-  para.innerText = message.text;
+  para.innerText = message.message;
   div.appendChild(para);
 
   document.querySelector(".chat-messages").appendChild(div);

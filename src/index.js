@@ -60,11 +60,8 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.send("<h1>Server is running!</h1>");
-});
 
-http.listen(3000, () => {
+server.listen(3000, function () {
   // eslint-disable-next-line no-console
-  console.log("server restarted!!");
+  console.log("Express server listening on port " + 3000);
 });
